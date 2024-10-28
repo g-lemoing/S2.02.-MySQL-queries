@@ -32,7 +32,7 @@ SELECT nombre, precio FROM producto ORDER BY nombre, precio DESC;
 -- 16
 SELECT * FROM fabricante LIMIT 5;
 -- 17
-SELECT * FROM fabricante WHERE codigo > 3 LIMIT 2;
+SELECT * FROM fabricante ORDER BY codigo LIMIT 2 OFFSET 3;
 -- 18
 SELECT nombre, precio FROM producto ORDER BY precio LIMIT 1;
 -- 19

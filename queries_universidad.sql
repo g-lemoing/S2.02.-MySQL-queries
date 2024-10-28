@@ -1,11 +1,23 @@
+USE universidad;
+
+-- 1
 SELECT apellido1, apellido2, nombre FROM persona WHERE tipo = 'alumno' ORDER BY apellido1, apellido2, nombre;
+-- 2
 SELECT apellido1, apellido2, nombre FROM persona WHERE tipo = 'alumno' AND telefono IS NULL;
+-- 3
 SELECT apellido1, apellido2, nombre FROM persona WHERE tipo = 'alumno' AND YEAR(fecha_nacimiento) = 1999;
+-- 4
 SELECT apellido1, apellido2, nombre FROM persona WHERE tipo = 'profesor' AND telefono IS NULL AND nif LIKE '%K';
+-- 5
 SELECT * FROM asignatura WHERE cuatrimestre = 1 AND curso = 3 AND id_grado = 7;
+-- 6
 SELECT apellido1, apellido2, p.nombre, d.nombre FROM persona p JOIN profesor pr on p.id = pr.id_profesor JOIN departamento d on pr.id_departamento = d.id ORDER BY apellido1, apellido2, p.nombre;
+-- 7
 SELECT a.nombre, ce.anyo_inicio, ce.anyo_fin FROM alumno_se_matricula_asignatura m JOIN persona p on m.id_alumno = p.id JOIN asignatura a ON m.id_asignatura = a.id join curso_escolar ce on m.id_curso_escolar = ce.id WHERE p.nif = '26902806M';
+-- 8
 SELECT DISTINCT d.nombre FROM asignatura a join grado g on a.id_grado = g.id JOIN profesor pr on pr.id_profesor = a.id_profesor JOIN departamento d ON pr.id_departamento = d.id WHERE g.nombre = 'Grado en Ingeniería Informática (Plan 2015)';
+-- 9
+SELECT DISTINCT p.* FROM alumno_se_matricula_asignatura m JOIN persona p ON m.id_alumno = p.id JOIN curso_escolar ce ON m.id_curso_escolar = ce.id WHERE ce.anyo_inicio = 2018 AND ce.anyo_fin = 2019;
 
 -- consultes utilitzant les clàusules LEFT JOIN i RIGHT JOIN
 -- 1
